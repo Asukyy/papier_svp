@@ -15,12 +15,4 @@ Le joueur doit prendre des décisions sur l'admissibilité des voyageurs, en fon
 Le jeu introduit progressivement de nouvelles règles et des situations plus complexes à mesure que le joueur progresse.
 Conseils :
 
-Créez une classe principale "BorderGuard" pour votre jeu.
-Utilisez des classes et des objets pour représenter les voyageurs et leurs documents.
-Implémentez des règles de validation pour chaque type de document (passeport, visa, etc.).
-Utilisez des fichiers de configuration pour stocker les règles du pays et les caractéristiques des voyageurs.
-Tenez un compte du score du joueur en fonction de ses décisions.
-Ce jeu peut être complexe à mettre en œuvre en fonction de la profondeur que vous souhaitez lui donner, mais il offre une expérience immersive et engageante, tout en mettant en avant des aspects de prise de décision, de gestion du temps et de logique semblables à "Papers, Please". Vous pouvez personnaliser le jeu en ajoutant des éléments de narration, des dilemmes moraux et d'autres fonctionnalités pour le rendre encore plus captivant.
-
-
 javac exobymyself/*.java
