@@ -1,4 +1,4 @@
-package exobymyself;
+package papier_svp;
 
 import java.awt.Toolkit;
 import java.awt.*;
@@ -163,7 +163,7 @@ public class BorderGuard {
                     finDeSession();
                 }
                 // 3min = 180000ms
-            }, 180000);
+            }, 5000);
             System.out.println(timer);
 
             int choix = scanner.nextInt();
@@ -226,9 +226,10 @@ public class BorderGuard {
                     }
                     break;
 
-                case 6:
-                    continuer = false;
-                    break;
+                    case 6:
+                    if (!finDeSession()) {
+                        return; // Quitter la méthode display lorsque l'utilisateur quitte
+                    }
 
                 default:
                     System.out.println("Choix invalide");
@@ -258,7 +259,7 @@ public class BorderGuard {
             voyageur = new Voyageur(document, carnet);
             afficherTexteProgressivementavecSon("Personne suivante !", 30);
         } else {
-            Amende amende = new Amende("Ville d'origine non autorisée", "Le voyageur n'est pas citoyen d'Arstotzka", 5,
+            Amende amende = new Amende("Ville d'origine invalide", "Le voyageur n'est pas citoyen d'Arstotzka", 5,
                     voyageur.getDocument());
 
             amendeCourante += amende.getMontant();
@@ -295,49 +296,89 @@ public class BorderGuard {
     // FONCTIONS GLOBAL
 
     public void afficherTotalAmendes() {
-        afficherTexteProgressivementavecSon("Argent gagné : " + argentGagné + "$", 30);
-        afficherTexteProgressivementavecSon("Argent perdu : " + amendeCourante + "$", 30);
-        afficherTexteProgressivementavecSon("Argent total : " + argentTotal + "$", 30);
-    }
-
-    public void jourSuivant() {
-        System.out.println("Jour " + jour);
-        jour++;
+        System.out.println("Total des amendes : " + amendeCourante + "$");
+        System.out.println("Total des gains : " + argentGagné + "$");
+        System.out.println("Total de l'argent : " + argentTotal + "$");
     }
 
     public void reinitialiserSessionPrecedente() {
         amendeCourante = 0;
         compteurPersonnes = 0;
-
         argentGagné = 0;
-
-        jourSuivant();
+        argentTotal = 0; // Ajoutez cette ligne pour réinitialiser également l'argent total
     }
+    
 
     public void continuerJeu() {
         reinitialiserSessionPrecedente();
         display();
     }
 
-    public void finDeSession() {
+    public void jourSuivant() {
+        System.out.println("Jour " + jour);
+        jour++;
+    }
+    
+
+    public boolean finDeSession() {
         afficherTotalAmendes();
         reinitialiserSessionPrecedente();
-
+        Scanner scanner = new Scanner(System.in);
+    
         System.out.println("Fin de la session. Voulez-vous continuer ?");
         System.out.println("1. Continuer");
         System.out.println("2. Quitter");
-
-        Scanner scanner = new Scanner(System.in);
+    
         int choix = scanner.nextInt();
-
+        scanner.nextLine();
+    
         if (choix == 1) {
             argentTotal = 0;
             jourSuivant();
-            continuerJeu();
+            return true; // L'utilisateur souhaite continuer
         } else {
             System.out.println("Merci d'avoir joué !");
             System.exit(0);
+            return false; // L'utilisateur souhaite quitter
         }
+    }
+
+    public void jouer() {
+        boolean continuerPartie = true;
+
+        while (continuerPartie) {
+            continuerPartie = commencerNouvellePartie();
+        }
+    }
+
+    public boolean commencerNouvellePartie() {
+        boolean choixValide = false;
+        Scanner scanner = new Scanner(System.in); // Ajout de cette ligne pour créer un scanner
+
+
+        while (!choixValide) {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+            afficherTexteProgressivementavecSon("Voulez-vous commencer à jouer ?", 35);
+            afficherTexteProgressivementavecSon("1. Oui", 35);
+            afficherTexteProgressivementavecSon("2. Non", 35);
+
+            int menu = scanner.nextInt();
+            scanner.nextLine();
+
+            if (menu == 1) {
+                System.out.println("Vous avez choisi de commencer à jouer");
+                choixValide = true;
+                continuerJeu();
+            } else if (menu == 2) {
+                afficherTexteProgressivementavecSon("A la prochaine !", 30);
+                return false;
+            } else {
+                afficherTexteProgressivementavecSon("Choix invalide. Veuillez choisir 1 (Oui) ou 2 (Non).", 30);
+            }
+        }
+
+        return true;
     }
 
 }

@@ -1,4 +1,4 @@
-package exobymyself;
+package papier_svp;
 
 import java.io.*;
 
@@ -29,6 +29,16 @@ public class Voyageur {
         this.prenomIdentite = "Prénom sur la carte";
         this.dateNaissance = "Date de naissance sur la carte";
         this.numeroCarte = "Numéro de la carte";
+    }
+
+    public boolean utiliserNomJorgiCostava(boolean forceJorgiCostava) {
+        if (forceJorgiCostava) {
+            this.nom = "Jorgi";
+            this.prenom = "Costava";
+            return true;
+        } else {
+            return Math.random() < 0.5; 
+        }
     }
 
     public String getNom() {

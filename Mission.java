@@ -1,4 +1,4 @@
-package exobymyself;
+package papier_svp;
 
 import java.io.*;
 import java.util.*;

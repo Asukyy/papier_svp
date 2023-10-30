@@ -1,4 +1,4 @@
-package exobymyself;
+package papier_svp;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ public class Amende {
     private int montant = 5;
     private Document document;
 
-    // Liste des motifs possibles
     private static List<String> motifsPossibles = new ArrayList<>();
 
     static {

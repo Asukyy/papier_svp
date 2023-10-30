@@ -1,4 +1,4 @@
-package exobymyself;
+package papier_svp;
 
 import java.util.Random;
 
@@ -28,6 +28,15 @@ public class DonneesAleatoiresUtil {
             "Suleyman", "Kamal", "Eldar", "Orkhan", "Emil",
             "Murad", "Ayub", "Asker", "Timur", "Ilgar"
     };
+    
+    private static final String[] nomsJorgi = {
+            "Jorgi Costava"
+    };
+
+    //sans fonction random rappelle jorji costava
+    public static String JorgiCostava() {
+        return nomsJorgi[0];
+    }
 
     public static String genererNomAleatoire() {
         int index = (int) (Math.random() * noms.length);
