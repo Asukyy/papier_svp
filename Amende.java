@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Amende {
-    private Integer montant = 5;
     private String motif;
+    private String description;
+    private int montant = 5;
     private Document document;
 
     // Liste des motifs possibles
@@ -28,12 +29,14 @@ public class Amende {
 
     }
 
-    public Amende(String motif, Document document) {
+    public Amende(String motif, String description, int montant, Document document) {
         if (motifsPossibles.contains(motif)) {
             this.motif = motif;
         } else {
             throw new IllegalArgumentException("Motif d'amende invalide");
         }
+        this.description = description;
+        this.montant = montant;
         this.document = document;
     }
 

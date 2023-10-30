@@ -11,6 +11,10 @@ public class Voyageur {
     private Document document;
     private Boolean estEnRegle;
     private Carnet carnet;
+    private String nomIdentite;
+    private String prenomIdentite;
+    private String dateNaissance;
+    private String numeroCarte;
 
     public Voyageur(Document document, Carnet carnet) {
         this.nom = DonneesAleatoiresUtil.genererNomAleatoire();
@@ -21,6 +25,10 @@ public class Voyageur {
         this.document = document;
         this.estEnRegle = false;
         this.carnet = carnet;
+        this.nomIdentite = "Nom sur la carte";
+        this.prenomIdentite = "Prénom sur la carte";
+        this.dateNaissance = "Date de naissance sur la carte";
+        this.numeroCarte = "Numéro de la carte";
     }
 
     public String getNom() {
@@ -47,6 +55,22 @@ public class Voyageur {
         return this.document;
     }
 
+    public String getNomIdentite() {
+        return nomIdentite;
+    }
+
+    public String getPrenomIdentite() {
+        return prenomIdentite;
+    }
+
+    public String getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public String getNumeroCarte() {
+        return numeroCarte;
+    }
+
     public Boolean getEstEnRegle() {
         return this.estEnRegle;
     }
@@ -55,7 +79,7 @@ public class Voyageur {
         this.document = document;
     }
 
-     public String getPasseport() {
+    public String getPasseport() {
         if (document.getType().equals("Passeport")) {
             return document.getNumero();
         }
@@ -70,16 +94,17 @@ public class Voyageur {
     }
 
     // public static void main(String[] args) {
-    //     Carnet carnet = new Carnet();
-    //     Document document = new Document("Passeport", "123456789", "01/01/2020", "01/01/2025", "Dupont", "John", 30, "Paris", 1);
-    //     Voyageur voyageur = new Voyageur(document, carnet);
-    //     System.out.println(voyageur.getNom());
-    //     System.out.println(voyageur.getPrenom());
-    //     System.out.println(voyageur.getAge());
-    //     System.out.println(voyageur.getVilleOrigine());
-    //     System.out.println(voyageur.getId());
-    //     System.out.println(voyageur.getDocument());
-    //     System.out.println(voyageur.getEstEnRegle());
+    // Carnet carnet = new Carnet();
+    // Document document = new Document("Passeport", "123456789", "01/01/2020",
+    // "01/01/2025", "Dupont", "John", 30, "Paris", 1);
+    // Voyageur voyageur = new Voyageur(document, carnet);
+    // System.out.println(voyageur.getNom());
+    // System.out.println(voyageur.getPrenom());
+    // System.out.println(voyageur.getAge());
+    // System.out.println(voyageur.getVilleOrigine());
+    // System.out.println(voyageur.getId());
+    // System.out.println(voyageur.getDocument());
+    // System.out.println(voyageur.getEstEnRegle());
     // }
 
 }

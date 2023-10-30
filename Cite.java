@@ -4,60 +4,41 @@ import java.io.*;
 import java.util.*;
 
 public class Cite {
-    private List<String> CiteinEachCity = new ArrayList<String>();
+    private Map<String, String> citeMap = new HashMap<>();
 
-    public Cite(){
-        this.CiteinEachCity.add("Orwich-Vanor");
-        this.CiteinEachCity.add("Vost. Grechtin");
-        this.CiteinEachCity.add("Paradis");
-        this.CiteinEachCity.add("Altan");
-        this.CiteinEachCity.add("Veskillo");
-        this.CiteinEachCity.add("Bernton");
-        this.CiteinEachCity.add("Octovalis");
-        this.CiteinEachCity.add("Gennistor");
-        this.CiteinEachCity.add("Lendiform");
-        this.CiteinEachCity.add("Wozenfield");
-        this.CiteinEachCity.add("Fardesto");
-        this.CiteinEachCity.add("Yourko");
-        this.CiteinEachCity.add("Védor");
-        this.CiteinEachCity.add("Zap. Grechtin");
-        this.CiteinEachCity.add("San Marmero");
-        this.CiteinEachCity.add("Glorian");
-        this.CiteinEachCity.add("Tétras extérieur");
-        this.CiteinEachCity.add("Skal");
-        this.CiteinEachCity.add("Lorndaz");
-        this.CiteinEachCity.add("Fusionus");
-        this.CiteinEachCity.add("Saint-Glorian");
-        this.CiteinEachCity.add("Lesrénadi");
-        this.CiteinEachCity.add("Bostan");
-        this.CiteinEachCity.add("Grand Rapide");
-        this.CiteinEachCity.add("Bardeauton");
-        this.CiteinEachCity.add("Korista");
-        this.CiteinEachCity.add("Enkyo");
-        this.CiteinEachCity.add("Haïhan");
-        this.CiteinEachCity.add("Tsunkéido");
+    public Cite() {
+        citeMap.put("Arstotzka", "Orwich-Vanor, Vost. Grechtin, Paradis");
+        citeMap.put("Antegria", "Lesrenadi, Mergerous, Grouse");
+        citeMap.put("Impor", "Enkyo, Tsunkeido, Shingleton");
+        citeMap.put("Kolechia", "Lesko, Yurko City, Grestin");
+        citeMap.put("Obristan", "Skal, Lorndaz, Vedor");
+        citeMap.put("Republia", "Republia, Republia City, West Grestin");
+        citeMap.put("United Federation", "Vedestan, East Grestin, Shingleton");
+        citeMap.put("Cobrastan", "Cobrastan, Cobrastan City, West Grestin");
+
     }
 
-    public void mettreAJourCite(List<String> nouvellesCite){
-        CiteinEachCity.clear();
-        CiteinEachCity.addAll(nouvellesCite);
+    public List<String> getCiteinEachCity() {
+        return new ArrayList<>(citeMap.keySet());
     }
 
- public List<String> getCiteinEachCity() {
-        return CiteinEachCity;
+    public String genererCiteAleatoire() {
+        Random random = new Random();
+        int index = random.nextInt(citeMap.size());
+        return (String) citeMap.keySet().toArray()[index];
     }
 
-        public String genererCiteAleatoire() {
-            Random random = new Random();
-            int index = random.nextInt(CiteinEachCity.size());
-            return CiteinEachCity.get(index);
-        }
+    public String CiteArtozka() {
+        return "Arstotzka";
+    }
 
-        // public static void main(String[] args) {
-        //     Cite cite = new Cite();
-        //     System.out.println(cite.genererCiteAleatoire());
-        // }
+    public String getDomainesPourCite(String cite) {
+        return citeMap.get(cite);
+    }
 
-
+    // public static void main(String[] args) {
+    // Cite cite = new Cite();
+    // System.out.println(cite.genererCiteAleatoire());
+    // }
 
 }

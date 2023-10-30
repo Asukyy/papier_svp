@@ -15,18 +15,22 @@ public class Mission {
         this.description = description;
     }
 
-    public String getName() { return this.name; }
+    public String getName() {
+        return this.name;
+    }
 
-    public String getDescription() { return this.description; }
+    public String getDescription() {
+        return this.description;
+    }
 
     public static Mission generateMission() {
         List<Mission> missions = new ArrayList<>();
-            missions.add(new Mission("Mission 1", "Laisser entrer uniquement les citoyens d'Arstotzka"));
-            missions.add(new Mission("Mission 2", "Vérifier les permis de travail pour les étrangers"));
-            missions.add(new Mission("Mission 3", "Recherche de contrebande de drogue"));
-            missions.add(new Mission("Mission 4", "Contrôler la validité des visas"));
-            missions.add(new Mission("Mission 5", "Rechercher les objets interdits dans les bagages"));
-            missions.add(new Mission("Mission 6", "Assurer la sécurité aux points de contrôle"));
+        missions.add(new Mission("Mission 1", "Laisser entrer uniquement les citoyens d'Arstotzka"));
+        missions.add(new Mission("Mission 2", "Vérifier les permis de travail pour les étrangers"));
+        missions.add(new Mission("Mission 3", "Recherche de contrebande de drogue"));
+        missions.add(new Mission("Mission 4", "Contrôler la validité des visas"));
+        missions.add(new Mission("Mission 5", "Rechercher les objets interdits dans les bagages"));
+        missions.add(new Mission("Mission 6", "Assurer la sécurité aux points de contrôle"));
 
         LocalDate currentDate = LocalDate.now();
 
@@ -35,4 +39,4 @@ public class Mission {
 
         return missions.get(missionNumber);
     }
-    }
+}
