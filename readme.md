@@ -15,4 +15,4 @@ Le joueur doit prendre des décisions sur l'admissibilité des voyageurs, en fon
 Le jeu introduit progressivement de nouvelles règles et des situations plus complexes à mesure que le joueur progresse.
 Conseils :
 
-javac exobymyself/*.java
+javac papier_svp/*.java
